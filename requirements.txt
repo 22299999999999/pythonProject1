@@ -1,0 +1,7 @@
+allure
+pytest
+random
+string
+requests
+yaml
+typing
