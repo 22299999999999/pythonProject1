@@ -28,7 +28,7 @@ class Contact(BasePage):
 
     def update_member(self, userid: str, **kwargs):
         data = {
-            "userid": userid,
+            "userid": userid
         }
         data.update(kwargs)
         url = 'https://qyapi.weixin.qq.com/cgi-bin/user/update'

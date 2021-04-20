@@ -2,6 +2,7 @@ import random
 import string
 
 import requests
+import yaml
 from requests import Session
 
 
@@ -33,3 +34,8 @@ class BasePage():
         end = ''.join(random.sample(string.digits, 8))
         res = start + end
         return res
+
+    def get_yaml(self):
+        with open('../page/contact.yaml', encoding='utf-8') as f:
+            data = yaml.safe_load(f)
+        return data

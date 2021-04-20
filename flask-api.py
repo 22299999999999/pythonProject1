@@ -14,12 +14,15 @@ class TestCase(Resource):
             for i in app.config["testcase"]:
                 # print(type("testcase中的id的类型为："))
                 # print(type(i["id"]))
-                if i["id"] == request.args["id"]:
+                if i["id"] == int(request.args["id"]):
                     return i
         else:
             return app.config["testcase"]
 
-    # 模拟post请求的命令：curl -i -H "Content-Type: application/json" -X POST -d "{"""id""":"""200"""}" 127.0.0.1:5000/testcase
+    # 模拟post请求的命令：
+    # curl -i -H "Content-Type: application/json" -X POST -d "{"""id""":"""200"""}" 127.0.0.1:5000/testcase   id为string类型
+    # curl -i -H "Content-Type: application/json" -X POST -d "{"""id""":200}" 127.0.0.1:5000/testcase   id为int类型
+
     def post(self):
         if "id" not in request.json:
             print(request.json)
